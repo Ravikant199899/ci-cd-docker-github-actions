@@ -305,7 +305,6 @@ Q: Why store credentials in GitHub Secrets?
 ![Docker Build And Run](screenshots/screenshot-19-docker-build-and-run.png)
 
 
-
 **Interview Qs:**
 
 Q: Why use SHA-based tags over latest?
@@ -417,6 +416,7 @@ Q: What is the role of a Service in K8s?
 - If CI/CD fails: verify secrets and YAML syntax.
 
 - If Minikube fails: allocate sufficient CPU & RAM via Docker Desktop settings.
+
 
 
 
