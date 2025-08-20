@@ -1,19 +1,22 @@
-# Use Node.js LTS Alpine image
+# Use Node.js 20 LTS Alpine image (lightweight base)
 FROM node:20-alpine
 
-# Set working directory
+# Install curl for healthcheck and debugging
+RUN apk add --no-cache curl
+
+# Set working directory inside the container
 WORKDIR /app
 
 # Copy package files and install dependencies
 COPY app/package*.json ./
-RUN npm install
+RUN npm install --production
 
 # Copy the rest of the app files
 COPY app/ .
 
-# Expose the app port
+# Expose the application port
 EXPOSE 3000
 
-# Run the app
+# Start the Node.js app
 CMD ["node", "server.js"]
 

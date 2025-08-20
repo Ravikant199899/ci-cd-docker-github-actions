@@ -1,0 +1,15 @@
+version: "3.9"   # Latest stable Compose file version
+
+services:
+  app:
+    image: jonty0731/ci-cd-docker-github-actions-app:latest
+    container_name: ci-cd-app
+    ports:
+      - "3000:3000"     # Map host port 3000 to container port 3000
+    restart: always     # Automatically restart if container crashes
+    healthcheck:        # Simple health check to ensure app is running
+      test: ["CMD", "curl", "-f", "http://localhost:3000"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
